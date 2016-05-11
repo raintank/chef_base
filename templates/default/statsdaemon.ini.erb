@@ -1,0 +1,21 @@
+listen_addr = "<%= node[:raintank_base][:statsd][:listen_addr] %>"
+admin_addr = "<%= node[:raintank_base][:statsd][:admin_addr] %>"
+profile_addr = "<%= node[:raintank_base][:statsd][:profile_addr] %>" # make "" to disable
+graphite_addr = "<%= node[:raintank_base][:statsd][:graphite_addr] %>"
+flush_interval = <%= node[:raintank_base][:statsd][:flush_interval] %>
+processes = <%= node[:raintank_base][:statsd][:processes] %>
+
+# statsdaemon submits internal metrics using itself.
+# with this key you can separate stats of separate instances
+# if this value is or expands to an empty string, it will be set to 'null'
+# supported variables:
+#  ${HOST} : hostname
+instance = "<%= node[:raintank_base][:statsd][:instance] %>"
+
+# prefixes for the various types.  they should probably end with a dot.
+prefix_rates = "<%= node[:raintank_base][:statsd][:prefix_rates] %>"
+prefix_timers = "<%= node[:raintank_base][:statsd][:prefix_timers] %>"
+prefix_gauges = "<%= node[:raintank_base][:statsd][:prefix_gauges] %>"
+
+percentile_thresholds = "<%= node[:raintank_base][:statsd][:percentile_thresholds] %>"
+max_timers_per_s = <%= node[:raintank_base][:statsd][:max_timers_per_s] %>
