@@ -87,8 +87,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.data_bags_path = "../../raintank-chef/role-cookbooks/data_bags/"
 
     chef.run_list = [
-      'recipe[raintank_base::users]',
-      'recipe[raintank_base::limits]'
+      'recipe[chef_base::users]',
+      'recipe[chef_base::limits]'
     ]
   end
 end
