@@ -1,4 +1,4 @@
-name             'raintank_base'
+name             'chef_base'
 maintainer       'Raintank, Inc.'
 maintainer_email 'cookbooks@raintank.io'
 license          'Apache 2.0'

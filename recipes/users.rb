@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: users
 #
 # Copyright (C) 2015 Raintank Inc.

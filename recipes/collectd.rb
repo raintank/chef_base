@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: collectd
 #
 # Copyright (C) 2016 Raintank, Inc.
@@ -38,5 +38,5 @@ if node["use_collectd"]
   include_recipe "collectd-ng::attribute_driven"
 end
 if node["use_statsd"]
-  include_recipe "raintank_base::statsd"
+  include_recipe "chef_base::statsd"
 end

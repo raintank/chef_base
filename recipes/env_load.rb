@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: env_load
 #
 # Copyright (C) 2016 Raintank, Inc.
@@ -19,7 +19,7 @@
 # For testing.
 
 remote_file "/usr/bin/env-load" do
-  source node['raintank_base']['env_load_url']
+  source node['chef_base']['env_load_url']
   owner "root"
   group "root"
   mode '0755'

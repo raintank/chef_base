@@ -1,16 +1,16 @@
 # packagecloud repo
-default[:raintank_base][:packagecloud_repo] = "raintank/raintank"
+default[:chef_base][:packagecloud_repo] = "raintank/raintank"
 
 # find_* searches
-default[:raintank_base][:haproxy_search] = "tags:haproxy AND chef_environment:#{node.chef_environment}"
-default[:raintank_base][:nsqd_search] = "tags:nsqd AND chef_environment:#{node.chef_environment}"
-default[:raintank_base][:cassandra_search] = "tags:cassandra AND chef_environment:#{node.chef_environment}"
+default[:chef_base][:haproxy_search] = "tags:haproxy AND chef_environment:#{node.chef_environment}"
+default[:chef_base][:nsqd_search] = "tags:nsqd AND chef_environment:#{node.chef_environment}"
+default[:chef_base][:cassandra_search] = "tags:cassandra AND chef_environment:#{node.chef_environment}"
 
 # image building
-default[:raintank_base][:is_img_build] = false
+default[:chef_base][:is_img_build] = false
 
 # env_load
-default[:raintank_base][:env_load_url] = "https://github.com/raintank/env-load/releases/download/20151103/env-load_linux_amd64"
+default[:chef_base][:env_load_url] = "https://github.com/raintank/env-load/releases/download/20151103/env-load_linux_amd64"
 
 # logstash-forwarder
 default['logstash-forwarder']['secrets_data_bag'] = 'elkstack'

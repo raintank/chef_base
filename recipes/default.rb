@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: default
 #
 # Copyright (C) 2016 Raintank, Inc.
@@ -17,5 +17,5 @@
 # limitations under the License.
 #
 
-include_recipe "raintank_base::users"
-include_recipe "raintank_base::limits"
+include_recipe "chef_base::users"
+include_recipe "chef_base::limits"

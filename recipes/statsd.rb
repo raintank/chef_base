@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: statsd
 #
 # Copyright (C) 2016 Raintank, Inc.
@@ -18,7 +18,7 @@
 
 # install the vimeo statsdaemon
 
-packagecloud_repo node[:raintank_base][:packagecloud_repo] do
+packagecloud_repo node[:chef_base][:packagecloud_repo] do
   type "deb"
 end
 

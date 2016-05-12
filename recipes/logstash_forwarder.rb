@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: raintank_base
+# Cookbook Name:: chef_base
 # Recipe:: logstash_forwarder
 #
 # Copyright (C) 2016 Raintank, Inc.
