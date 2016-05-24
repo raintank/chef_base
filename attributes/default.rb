@@ -26,3 +26,17 @@ default['ulimit']['params']['@sysadmin']['nofile']['soft'] = 900000
 # sudo
 default['authorization']['sudo']['passwordless'] = true
 default['authorization']['sudo']['groups'] = [ 'sysadmin' ]
+
+# statsd
+default[:chef_base][:statsd][:listen_addr] = ':8125'
+default[:chef_base][:statsd][:admin_addr] = ':8126'
+default[:chef_base][:statsd][:profile_addr] = ':6060'
+default[:chef_base][:statsd][:graphite_addr] = '127.0.0.1:2003'
+default[:chef_base][:statsd][:flush_interval] = 60
+default[:chef_base][:statsd][:processes] = 4
+default[:chef_base][:statsd][:instance] = '${HOST}'
+default[:chef_base][:statsd][:prefix_rates] = 'stats.'
+default[:chef_base][:statsd][:prefix_timers] = 'stats.timers.'
+default[:chef_base][:statsd][:prefix_gauges] = 'stats.gauges.'
+default[:chef_base][:statsd][:percentile_thresholds] = '90,75'
+default[:chef_base][:statsd][:max_timers_per_s] = 10000
