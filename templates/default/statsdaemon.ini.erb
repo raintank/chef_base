@@ -3,6 +3,9 @@ admin_addr = "<%= node[:chef_base][:statsd][:admin_addr] %>"
 profile_addr = "<%= node[:chef_base][:statsd][:profile_addr] %>" # make "" to disable
 graphite_addr = "<%= node[:chef_base][:statsd][:graphite_addr] %>"
 flush_interval = <%= node[:chef_base][:statsd][:flush_interval] %>
+flush_rates = <%= node[:chef_base][:statsd][:flush_rates] %>
+flush_counts = <%= node[:chef_base][:statsd][:flush_counts] %>
+legacy_namespace = <%= node[:chef_base][:statsd][:legacy_namespace] %>
 processes = <%= node[:chef_base][:statsd][:processes] %>
 
 # statsdaemon submits internal metrics using itself.
@@ -16,6 +19,28 @@ instance = "<%= node[:chef_base][:statsd][:instance] %>"
 prefix_rates = "<%= node[:chef_base][:statsd][:prefix_rates] %>"
 prefix_timers = "<%= node[:chef_base][:statsd][:prefix_timers] %>"
 prefix_gauges = "<%= node[:chef_base][:statsd][:prefix_gauges] %>"
+prefix_counters = "<%= node[:chef_base][:statsd][:prefix_counters] %>"
 
 percentile_thresholds = "<%= node[:chef_base][:statsd][:percentile_thresholds] %>"
 max_timers_per_s = <%= node[:chef_base][:statsd][:max_timers_per_s] %>
+
+proftrigger_path = <%= node[:chef_base][:statsd][:prof][:path] %>
+proftrigger_cpu_freq = <%= node[:chef_base][:statsd][:prof][:cpu_freq] %>
+proftrigger_cpu_min_diff = <%= node[:chef_base][:statsd][:prof][:cpu_min_diff] %>
+proftrigger_cpu_dur = <%= node[:chef_base][:statsd][:prof][:cpu_dur] %>
+proftrigger_cpu_thresh = <%= node[:chef_base][:statsd][:prof][:cpu_thresh] %>
+
+
+legacy_namespace = false
+prefix_rates = "stats_global.prod.counters."
+prefix_counters = "stats_global.prod.counters."
+prefix_timers = "stats_global.prod.timers."
+prefix_gauges = "stats_global.prod.gauges."
+flush_rates = false
+flush_counts = true
+
+proftrigger_path = "/tmp/ or some writeable path or whatever"
+proftrigger_cpu_freq = "1s"
+proftrigger_cpu_min_diff = "60m"
+proftrigger_cpu_dur = "5s"
+proftrigger_cpu_thresh = 50
