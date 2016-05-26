@@ -29,18 +29,3 @@ proftrigger_cpu_freq = <%= node[:chef_base][:statsd][:prof][:cpu_freq] %>
 proftrigger_cpu_min_diff = <%= node[:chef_base][:statsd][:prof][:cpu_min_diff] %>
 proftrigger_cpu_dur = <%= node[:chef_base][:statsd][:prof][:cpu_dur] %>
 proftrigger_cpu_thresh = <%= node[:chef_base][:statsd][:prof][:cpu_thresh] %>
-
-
-legacy_namespace = false
-prefix_rates = "stats_global.prod.counters."
-prefix_counters = "stats_global.prod.counters."
-prefix_timers = "stats_global.prod.timers."
-prefix_gauges = "stats_global.prod.gauges."
-flush_rates = false
-flush_counts = true
-
-proftrigger_path = "/tmp/ or some writeable path or whatever"
-proftrigger_cpu_freq = "1s"
-proftrigger_cpu_min_diff = "60m"
-proftrigger_cpu_dur = "5s"
-proftrigger_cpu_thresh = 50
