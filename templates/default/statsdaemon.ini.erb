@@ -24,8 +24,8 @@ prefix_counters = "<%= node[:chef_base][:statsd][:prefix_counters] %>"
 percentile_thresholds = "<%= node[:chef_base][:statsd][:percentile_thresholds] %>"
 max_timers_per_s = <%= node[:chef_base][:statsd][:max_timers_per_s] %>
 
-proftrigger_path = <%= node[:chef_base][:statsd][:prof][:path] %>
-proftrigger_cpu_freq = <%= node[:chef_base][:statsd][:prof][:cpu_freq] %>
-proftrigger_cpu_min_diff = <%= node[:chef_base][:statsd][:prof][:cpu_min_diff] %>
-proftrigger_cpu_dur = <%= node[:chef_base][:statsd][:prof][:cpu_dur] %>
+proftrigger_path = "<%= node[:chef_base][:statsd][:prof][:path] %>"
+proftrigger_cpu_freq = "<%= node[:chef_base][:statsd][:prof][:cpu_freq] %>"
+proftrigger_cpu_min_diff = "<%= node[:chef_base][:statsd][:prof][:cpu_min_diff] %>"
+proftrigger_cpu_dur = "<%= node[:chef_base][:statsd][:prof][:cpu_dur] %>"
 proftrigger_cpu_thresh = <%= node[:chef_base][:statsd][:prof][:cpu_thresh] %>
