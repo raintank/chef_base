@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@raintank.io'
 license          'Apache 2.0'
 description      'Installs/Configures raintank-base'
 long_description 'Installs/Configures raintank-base'
-version          '0.1.2'
+version          '0.1.3'
 
 depends "sudo", '~> 2.7.1'
 depends 'collectd-ng', '~> 2.0.0'
