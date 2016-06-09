@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef_base
-# Recipe:: default
+# Recipe:: rc_local
 #
 # Copyright (C) 2016 Raintank, Inc.
 #
@@ -17,7 +17,13 @@
 # limitations under the License.
 #
 
-include_recipe "chef_base::users"
-include_recipe "chef_base::limits"
-include_recipe "chef_base::rc_local"
-include_recipe "chef_base::raintank_apt"
+template "/etc/rc.local" do
+  source "rc.local.erb"
+  mode "0755"
+  owner "root"
+  group "root"
+  variables({
+    :rc_local_items => node['chef_base']['rc_local_items']
+  }) 
+  action :create 
+end
