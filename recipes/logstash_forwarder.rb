@@ -24,14 +24,14 @@ file cert_file do
   owner 'root'
   group 'root'
   mode '0600'
-  content ssl['certificate']
+  content Base64.decode64(ssl['certificate'])
   action :create
 end
 file key_file do
   owner 'root'
   group 'root'
   mode '0600'
-  content ssl['key']
+  content Base64.decode64(ssl['key'])
   action :create
 end
 
