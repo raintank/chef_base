@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef_base
-# Recipe:: limits
+# Recipe:: hostname
 #
 # Copyright (C) 2016 Raintank, Inc.
 #
@@ -17,4 +17,16 @@
 # limitations under the License.
 #
 
-include_recipe "ulimit2"
+file "/etc/hostname" do
+  owner "root"
+  group "root"
+  content node.hostname
+  action :create
+  notifies :run, "bash[update_hostname]", :delayed
+end
+
+bash "update_hostname" do
+  cwd "/tmp"
+  code "hostname -F /etc/hostname"
+  action :nothing
+end
