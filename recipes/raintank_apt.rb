@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef_base
-# Recipe:: default
+# Recipe:: raintank_apt
 #
 # Copyright (C) 2016 Raintank, Inc.
 #
@@ -17,7 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe "chef_base::users"
-include_recipe "chef_base::limits"
-include_recipe "chef_base::rc_local"
-include_recipe "chef_base::raintank_apt"
+include_recipe "apt"
+bash "update_raintank_apt" do
+  cwd "/tmp"
+  code <<-EOH
+    apt-get update -o Dir::Etc::sourcelist="sources.list.d/raintank_raintank_.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0" || true
+    EOH
+end

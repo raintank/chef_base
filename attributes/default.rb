@@ -49,3 +49,6 @@ default[:chef_base][:statsd][:prof][:cpu_freq] = "1s"
 default[:chef_base][:statsd][:prof][:cpu_min_diff] = "60m"
 default[:chef_base][:statsd][:prof][:cpu_dur] = "5s"
 default[:chef_base][:statsd][:prof][:cpu_thresh] = 50
+
+# rc.local
+default[:chef_base][:rc_local_items] = [ "/usr/bin/chef-client" ]
