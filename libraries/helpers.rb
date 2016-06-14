@@ -29,12 +29,33 @@ module RaintankBase
       return (h) ? h.ipaddress : nil
     end
     def find_nsqd(port=4150)
+      if node['chef_base']['k8_env']
+	find_nsqd_k8(port)
+      else
+	find_nsqd_std(port)
+      end
+    end
+    def find_nsqd_std(port=4150)
       if Chef::Config[:solo] || node['chef_base']['standalone']
 	return [ "127.0.0.1:#{port}" ]
       end
       # eventually we'll want to limit this search to only the same zone
       nsqds = search("node", node['chef_base']['nsqd_search'])
       return nsqds.map { |n| "#{n.fqdn}:#{port}" }
+    end
+    def find_nsqd_k8(port=4150)
+      # TODOs: some kind of way to look up the kubernetes clusters without
+      # having to add it to the environment or node data would be nice.
+      # Also: verify SSL instead of using VERIFY_NONE and having to provide a
+      # user/password combo.
+      require 'kubeclient'
+      addrs = []
+      node['chef_base']['k8_masters'].each do |k|
+	client = Kubeclient::Client.new "https://#{k['addr']}/api/", "v1", ssl_options: { verify_ssl: OpenSSL::SSL::VERIFY_NONE }, auth_options: { password: "#{k['password']}", username: "#{k['username']}" }
+	res = JSON.parse(client.rest_client["namespaces/#{node['chef_base']['k8_namespace']}/endpoints/nsqd"].get())
+	addrs += res['subsets'].map { |x| x["addresses"].map { |y| y["ip"] } }.flatten
+      end
+      return addrs.map { |n| "#{n}:#{port}" }
     end
     def find_cassandras
       if Chef::Config[:solo]

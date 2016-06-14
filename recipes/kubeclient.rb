@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef_base
-# Recipe:: default
+# Recipe:: kubeclient
 #
 # Copyright (C) 2016 Raintank, Inc.
 #
@@ -17,10 +17,12 @@
 # limitations under the License.
 #
 
-include_recipe "chef_base::users"
-include_recipe "chef_base::limits"
-include_recipe "chef_base::rc_local"
-include_recipe "chef_base::raintank_apt"
-if node['chef_base']['k8_env']
-  include_recipe "chef_base::kubeclient"
+# If running in a kubernetes environment, install the kubeclient gem
+
+package 'build-essential'
+package 'ruby-dev'
+
+chef_gem 'kubeclient' do
+  compile_time false
+  action :install
 end

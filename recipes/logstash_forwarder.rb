@@ -45,3 +45,5 @@ node['logstash-forwarder']['config']['files'].each do |k, v|
     fields v["fields"]
   end
 end
+
+tag("logstash-forwarder")

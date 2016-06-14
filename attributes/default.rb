@@ -52,3 +52,8 @@ default[:chef_base][:statsd][:prof][:cpu_thresh] = 50
 
 # rc.local
 default[:chef_base][:rc_local_items] = [ "/usr/bin/chef-client" ]
+
+# kubernetes environment things
+default[:chef_base][:k8_env] = false
+default[:chef_base][:k8_masters] = []
+default[:chef_base][:k8_namespace] = "default"
