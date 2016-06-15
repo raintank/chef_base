@@ -21,6 +21,3 @@ include_recipe "chef_base::users"
 include_recipe "chef_base::limits"
 include_recipe "chef_base::rc_local"
 include_recipe "chef_base::raintank_apt"
-if node['chef_base']['k8_env']
-  include_recipe "chef_base::kubeclient"
-end
