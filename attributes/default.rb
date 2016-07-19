@@ -30,7 +30,7 @@ default['authorization']['sudo']['groups'] = [ 'sysadmin' ]
 # statsd
 default[:chef_base][:statsd][:listen_addr] = ':8125'
 default[:chef_base][:statsd][:admin_addr] = ':8126'
-default[:chef_base][:statsd][:profile_addr] = ':6060'
+default[:chef_base][:statsd][:profile_addr] = ':6061'
 default[:chef_base][:statsd][:graphite_addr] = '127.0.0.1:2003'
 default[:chef_base][:statsd][:flush_interval] = 60
 default[:chef_base][:statsd][:flush_rates] = false
