@@ -37,6 +37,6 @@ if node["use_collectd"]
   include_recipe "collectd-ng::default"
   include_recipe "collectd-ng::attribute_driven"
 end
-if node["use_statsd"]
+if node["use_statsd"] && node["use_collectd"]
   include_recipe "chef_base::statsd"
 end
