@@ -17,7 +17,9 @@
 # limitations under the License.
 #
 
+include_recipe "chef_base::sysctl"
 include_recipe "chef_base::users"
 include_recipe "chef_base::limits"
 include_recipe "chef_base::rc_local"
 include_recipe "chef_base::raintank_apt"
+include_recipe "chef_base::apt_clean"

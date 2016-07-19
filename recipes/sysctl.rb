@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef_base
-# Recipe:: raintank_apt
+# Recipe:: sysctl
 #
 # Copyright (C) 2016 Raintank, Inc.
 #
@@ -17,15 +17,4 @@
 # limitations under the License.
 #
 
-include_recipe "apt"
-
-packagecloud_repo node[:chef_base][:packagecloud_repo] do
-  type "deb"
-end
-
-bash "update_raintank_apt" do
-  cwd "/tmp"
-  code <<-EOH
-    apt-get update -o Dir::Etc::sourcelist="sources.list.d/raintank_raintank_.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0" || true
-    EOH
-end
+include_recipe 'sysctl::apply'
