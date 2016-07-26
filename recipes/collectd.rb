@@ -31,7 +31,10 @@ end
 
 node.set["collectd"]["plugins"]["write_graphite"]["config"]["Prefix"] = "collectd.#{node["collectd_environment"]}.#{node["collectd_personality"]}."
 
-node.set["collectd"]["name"] = node.name.sub /\.raintank\.io$/, ''
+collectd_name = node.name.sub /\.raintank\.io$/, ''
+collectd_name.sub! /\./, '-'
+
+node.set["collectd"]["name"] = collectd_name
 
 if node["use_collectd"]
   include_recipe "collectd-ng::default"
