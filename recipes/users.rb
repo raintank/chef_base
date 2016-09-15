@@ -45,6 +45,13 @@ users.each do |u|
     home u['home']
     action :create
   end
+  
+  directory "#{u['home']}" do
+    owner u['username']
+    group u['username']
+    mode "0755"
+  end
+
   directory "#{u['home']}/.ssh" do
     owner u['username']
     group u['username']
